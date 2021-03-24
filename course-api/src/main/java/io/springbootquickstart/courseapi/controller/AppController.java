@@ -56,7 +56,7 @@ public class AppController implements ErrorController
 		List EmployeeList = repoemp.getAllEmployee();
 		Map<String, Object> params = new HashMap<>();
 		
-//		params.put("productLists", productLissst);ss
+//		params.put("productLists", productLissst);ssaaa
 		params.put("EmployeeLists", EmployeeList);
 
 		
