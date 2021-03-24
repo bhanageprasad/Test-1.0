@@ -1,0 +1,224 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org"> 
+<!-- <html xmlns:th="http://www.thymeleaf.org"> -->
+<head>
+<meta charset="ISO-8859-1">
+<meta name="description" content="Yoga Studio Template">
+<meta name="keywords" content="Yoga, unica, creative, html">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+<meta http-equiv="X-UA-Compatible" content="ie=edge">
+<link href="https://fonts.googleapis.com/css?family=Amatic+SC:400,700&display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css?family=Montserrat:100,200,300,400,500,600,700,800,900&display=swap" rel="stylesheet">
+<title>Employee</title>
+
+
+<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+<link rel="stylesheet" href="https://cdn.datatables.net/1.10.12/css/jquery.dataTables.min.css">
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+<link href="https://fonts.googleapis.com/css2?family=Amiri:wght@700&family=Josefin+Sans:ital,wght@1,700&display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Audiowide&family=Great+Vibes&display=swap" rel="stylesheet">
+	<script src="https://cdnjs.cloudflare.com/ajax/libs/jquery-cookie/1.4.1/jquery.cookie.min.js"></script>
+	<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+<link href="https://fonts.googleapis.com/css?family=Flamenco&display=swap" rel="stylesheet">
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.0/jquery.min.js"></script>
+<script src="https://unpkg.com/sweetalert/dist/sweetalert.min.js"></script>
+<script src='https://kit.fontawesome.com/a076d05399.js'></script>
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+	<script src="https://cdnjs.cloudflare.com/ajax/libs/jeditable.js/1.7.3/jeditable.min.js"></script>
+	<script src="https://cdnjs.cloudflare.com/ajax/libs/jquery-validate/1.19.2/jquery.validate.min.js"></script>
+<!-- 	<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css"> -->
+	
+		<script src="https://cdn.datatables.net/1.10.2/js/jquery.dataTables.min.js"></script>
+	<script src="https://cdn.datatables.net/1.10.2/js/jquery.dataTables.js"></script>
+	<link rel="stylesheet" href="https://cdn.datatables.net/1.10.12/css/jquery.dataTables.min.css">
+	
+<script th:src="@{/js/index.js}"></script>
+	<script th:src="@{/js/dataTables.buttons.min.js}"></script>
+	<script th:src="@{/js/dataTables.select.min.js}"></script>
+	<script th:src="@{/js/dataTables.editor.min.js}"></script>
+	<script th:src="@{/js/jquery.dataTables.editable.js}"></script>
+<script type="text/javascript">
+
+$(document).ready(function()
+{	
+    $("#updateemployee").hide();
+    $("#EmployeeListDiv").hide();
+    $("#addemployee").show();
+
+     $('#editEmployee').click(function()
+    {
+        $("#addemployee").hide();
+        $("#EmployeeListDiv").hide();
+        $("#updateemployee").show();
+	    return false;
+    }); 
+
+/*     $('#cancelUpdateProduct').click(function()
+    {
+        $("#EmployeeListDiv").hide();
+        $("#updateProductDiv").hide();
+        $("#addemployee").show();
+    	return false;
+    }); */
+    
+    $('#EmployeeList').click(function()
+	{
+        $("#addemployee").hide();
+        $("#updateemployee").hide();
+        $("#EmployeeListDiv").show();
+		return false;
+	});
+    
+    $('#empListBack1').click(function()
+    		{
+    	    	    $("#updateemployee").hide();
+    	    	    $("#EmployeeListDiv").hide();
+    	    	    $("#addemployee").show();
+    			return false;
+    		}); 
+     $('#empListBack').click(function()
+	{
+    	    $("#updateemployee").hide();
+    	    $("#EmployeeListDiv").hide();
+    	    $("#addemployee").show();
+		return false;
+	}); 
+});
+</script>
+
+</head>
+<body>
+<div>
+
+	
+<div class="tile">
+					<h3 class="tile-title">Add Employee details</h3>
+
+<div class="container">
+<div align="center">
+<div id="addemployee">
+<div class="form-group">
+				<label for="bookId">Employee ID:</label> <input type="text"
+					class="form-control" id="empId" placeholder="Enter Id"
+					name="bookId">
+			</div>
+			<div class="form-group">
+				<label for="bookName">First Name:</label> <input type="text"
+					class="form-control" id="firstName" placeholder="Enter first Name"
+					name="firstName">
+			</div>
+			<div class="form-group">
+				<label for="bookName">Last Name:</label> <input type="text"
+					class="form-control" id="lastName" placeholder="Enter last Name"
+					name="lastName">
+			</div>
+			<div class="form-group">
+				<label for="bookName">City:</label> <input type="text"
+					class="form-control" id="city" placeholder="Enter City"
+					name="city">
+			</div>
+			<div class="form-group">
+				<label for="author">Age :</label> <input type="text"
+					class="form-control" id="age" placeholder="Enter Age"
+					name="age">
+			</div>
+			<div class="form-group">
+				<label for="author">Salary :</label> <input type="text"
+					class="form-control" id="sal" placeholder="Enter Salary"
+					name="sal">
+			</div>
+						<div class="form-group">
+				<label for="author">Department :</label> <input type="text"
+					class="form-control" id="department" placeholder="Enter Department"
+					name="department">
+			</div>
+						
+	<button type="button" class="btn btn-success btn-lg" id="saveEmp" onclick="empDetails();">Save</button>
+				<button class="btn btn-primary  btn-lg" id="editEmployee">Edit</button>
+				<button class="btn btn-primary btn-lg" id="EmployeeList" onclick="getEmpList()">List</button>
+</div>
+
+<div id="updateemployee">
+<div class="form-group">
+
+		<label>Update Employee</label>
+		    <select id="EmployeeFromSelectToUpdate" onchange="getEmployeeDetails()" class="form-control">
+			    <option value="0">Select Employee</option>
+			    <option th:each="p : ${EmployeeLists}" th:value="${p.empId}" th:text="${p.firstName}"></option>
+		    </select> 
+				<label for="bookId">Employee ID:</label> <input type="text"
+					class="form-control" id="empId1" placeholder="Enter Id"
+					name="bookId">
+			</div>
+			<div class="form-group">
+				<label for="bookName">First Name:</label> <input type="text"
+					class="form-control" id="firstName1" placeholder="Enter first Name"
+					name="firstName">
+			</div>
+			<div class="form-group">
+				<label for="bookName">Last Name:</label> <input type="text"
+					class="form-control" id="lastName1" placeholder="Enter last Name"
+					name="lastName">
+			</div>
+			<div class="form-group">
+				<label for="bookName">City:</label> <input type="text"
+					class="form-control" id="city1" placeholder="Enter City"
+					name="city">
+			</div>
+			<div class="form-group">
+				<label for="author">Age :</label> <input type="text"
+					class="form-control" id="age1" placeholder="Enter Age"
+					name="age">
+			</div>
+			<div class="form-group">
+				<label for="author">Salary :</label> <input type="text"
+					class="form-control" id="salary1" placeholder="Enter Salary"
+					name="sal">
+			</div>
+						<div class="form-group">
+				<label for="author">Department :</label> <input type="text"
+					class="form-control" id="department1" placeholder="Enter Department"
+					name="department">
+			</div>
+						
+	<button type="button" class="btn btn-success btn-lg" id="updateEmp" onclick="updateEmployee();">Update</button>
+	 	<button class="btn btn-primary btn-lg" id="empListBack1">Back</button> 
+</div>
+
+<div id="EmployeeListDiv" style="padding-top: 10px;display:none;">
+<h2>Employee List</h2> 
+<hr/>
+	<table id="EmpListTable" class="display table-responsive" border="1" cellspacing="0" width="100%">
+		<thead>
+		    <tr>
+		        <th>ID </th>
+		        <th>First Name</th>
+		        <th>Last Name</th>
+		        <th>City</th>
+		       	<th>Age</th>
+		        <th>Salary</th>
+		        <th>Department</th>
+		    </tr>
+		</thead>
+		<tfoot>
+	    </tfoot>
+	</table>
+	<br>
+ 	<button class="btn btn-primary btn-lg" id="empListBack">Back</button> 
+</div>
+
+
+</div></div>
+				<!-- 	</form> -->
+
+				</div>
+</div>
+</body>
+</html>
+
+
+
+
+
+
