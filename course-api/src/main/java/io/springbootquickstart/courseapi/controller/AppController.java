@@ -52,7 +52,7 @@ public class AppController implements ErrorController
 	public ModelAndView findAllProduct(Model model)
 	{		
 		System.out.println("in model view");
-//		List productList = repoProduct.getAllProducts();
+
 		List EmployeeList = repoemp.getAllEmployee();
 		Map<String, Object> params = new HashMap<>();
 		
